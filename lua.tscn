@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://blil8g6c7e1m0"]
+[gd_scene load_steps=29 format=3 uid="uid://blil8g6c7e1m0"]
 
 [ext_resource type="Texture2D" uid="uid://nbtcytolnrxj" path="res://walk and idle.png" id="1_3thls"]
 [ext_resource type="Script" path="res://lua.gd" id="1_7c5ah"]
@@ -202,9 +202,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1oyv"]
 size = Vector2(17, 5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmt2l"]
-size = Vector2(17, 5)
-
 [node name="Lua" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_7c5ah")
 
@@ -216,9 +213,3 @@ autoplay = "parado"
 [node name="ColisorTerreno" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 8.5)
 shape = SubResource("RectangleShape2D_l1oyv")
-
-[node name="AreaAtaque" type="Area2D" parent="."]
-
-[node name="ColisorAtaque" type="CollisionShape2D" parent="AreaAtaque"]
-position = Vector2(0.5, 8.5)
-shape = SubResource("RectangleShape2D_dmt2l")
