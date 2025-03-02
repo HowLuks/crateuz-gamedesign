@@ -1,0 +1,135 @@
+[gd_scene load_steps=18 format=3 uid="uid://bd5xwrpqjva5o"]
+
+[ext_resource type="Script" path="res://zumbi_normal.gd" id="1_ax8t2"]
+[ext_resource type="Texture2D" uid="uid://bm7gp6ibef14b" path="res://Spritesheets-Zombies/001_walking.png" id="2_2qmog"]
+[ext_resource type="Texture2D" uid="uid://b5018fxock5na" path="res://Spritesheets-Zombies/001_attack.png" id="2_5edqp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36x1n"]
+atlas = ExtResource("2_5edqp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cmct"]
+atlas = ExtResource("2_5edqp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_do0t1"]
+atlas = ExtResource("2_5edqp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uo7ns"]
+atlas = ExtResource("2_5edqp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er2j4"]
+atlas = ExtResource("2_5edqp")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwof5"]
+atlas = ExtResource("2_5edqp")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhtjo"]
+atlas = ExtResource("2_2qmog")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e5tc"]
+atlas = ExtResource("2_2qmog")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n4j3"]
+atlas = ExtResource("2_2qmog")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axo4x"]
+atlas = ExtResource("2_2qmog")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tcxtw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36x1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7cmct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_do0t1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uo7ns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_er2j4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwof5")
+}],
+"loop": true,
+"name": &"ataque",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhtjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6e5tc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n4j3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axo4x")
+}],
+"loop": true,
+"name": &"mov_direita",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytk11"]
+size = Vector2(100, 45)
+
+[sub_resource type="GDScript" id="GDScript_65po0"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42wkc"]
+size = Vector2(128.571, 135.714)
+
+[node name="Zumbi Normal" type="CharacterBody2D"]
+scale = Vector2(0.14, 0.14)
+script = ExtResource("1_ax8t2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(31, 49.6)
+scale = Vector2(7.2, 7.2)
+sprite_frames = SubResource("SpriteFrames_tcxtw")
+animation = &"ataque"
+autoplay = "mov_direita"
+
+[node name="ColisorTerreno" type="CollisionShape2D" parent="."]
+visibility_layer = 2
+position = Vector2(35.7143, 142.5)
+shape = SubResource("RectangleShape2D_ytk11")
+
+[node name="AreaAtaque" type="Area2D" parent="."]
+position = Vector2(35.7143, 142.5)
+script = SubResource("GDScript_65po0")
+
+[node name="ColisorAtaque" type="CollisionShape2D" parent="AreaAtaque"]
+light_mask = 0
+position = Vector2(0, -46.0714)
+shape = SubResource("RectangleShape2D_42wkc")
+
+[connection signal="body_entered" from="AreaAtaque" to="." method="_on_attck_area_ataque_body_entered"]
