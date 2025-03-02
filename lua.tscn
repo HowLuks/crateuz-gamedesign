@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://archer.gd" id="4_liuue"]
 [ext_resource type="Texture2D" uid="uid://vuxxxc2k0pf5" path="res://Bow and Arrows.png" id="5_pnspe"]
 
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4cr0i"]
 atlas = ExtResource("1_3thls")
 region = Rect2(0, 48, 24, 24)
