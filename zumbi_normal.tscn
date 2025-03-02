@@ -88,7 +88,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytk11"]
-size = Vector2(100, 45)
+size = Vector2(128.571, 136.429)
 
 [sub_resource type="GDScript" id="GDScript_65po0"]
 script/source = "extends Area2D
@@ -107,7 +107,7 @@ func _process(delta: float) -> void:
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42wkc"]
 size = Vector2(128.571, 135.714)
 
-[node name="Zumbi Normal" type="CharacterBody2D"]
+[node name="Zumbi Normal" type="CharacterBody2D" groups=["zumbi"]]
 scale = Vector2(0.14, 0.14)
 script = ExtResource("1_ax8t2")
 
@@ -120,7 +120,7 @@ autoplay = "mov_direita"
 
 [node name="ColisorTerreno" type="CollisionShape2D" parent="."]
 visibility_layer = 2
-position = Vector2(35.7143, 142.5)
+position = Vector2(35.7143, 96.7857)
 shape = SubResource("RectangleShape2D_ytk11")
 
 [node name="AreaAtaque" type="Area2D" parent="."]

@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var dano: int = 2  # Dano do zumbi
 @onready var anim = $AnimatedSprite2D
 @onready var player = get_tree().get_nodes_in_group("player")[0]  # Obtém o jogador
-
+@export var vida_atual = 2
 
 
 
@@ -14,11 +14,6 @@ var attacking = false
 func _process(delta):
 	if attacking or not player:
 		return
-	
-
-	# Define a direção em direção ao jogador
-
-	# Define a direção em direção ao jogador
 
 	var direction = (player.global_position - global_position).normalized()
 	
@@ -51,3 +46,12 @@ func _on_attck_area_ataque_body_entered(body) -> void:
 		anim.play("ataque")
 		await anim.animation_finished
 		attacking = false
+
+func receber_dano(dano: int):
+	vida_atual -= dano
+
+	if vida_atual <= 0:
+		morrer()
+
+func morrer():
+	queue_free()

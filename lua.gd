@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: float = 50.0
-@export var vida_max = 100
+@export var vida_max = 10
 var vida_atual
 
 @onready var anim = $"Movimentação"
@@ -56,6 +56,7 @@ func receber_dano(dano: int):
 
 	if vida_atual <= 0:
 		morrer()
+		get_tree().change_scene_to_file("res://inicio tela.tscn")
 
 func morrer():
 	queue_free()  # Remove o personagem do jogo (pode adicionar uma animação antes)

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bp0jgmin4yhdi" path="res://hotbar.tscn" id="4_xeq2w"]
 
 [node name="principal" type="Node2D"]
+scale = Vector2(0.999508, 1)
 
 [node name="Level" parent="." instance=ExtResource("1_iygss")]
 position = Vector2(508, 357)
@@ -14,7 +15,11 @@ position = Vector2(508, 357)
 position = Vector2(714, 706)
 
 [node name="barra_de_vida" parent="Lua" index="2"]
-max_value = 100.0
+max_value = 10.0
+value = 10.0
+
+[node name="Collision" parent="Lua/Area2D" index="0"]
+position = Vector2(0.5, -2)
 
 [node name="Camera2D" type="Camera2D" parent="Lua"]
 zoom = Vector2(3, 3)
@@ -25,48 +30,63 @@ position = Vector2(11, 94)
 [node name="Zumbi Normal" parent="." instance=ExtResource("3_ub2sd")]
 light_mask = 0
 position = Vector2(560, 705)
+metadata/_edit_group_ = true
 
 [node name="Zumbi Normal2" parent="." instance=ExtResource("3_ub2sd")]
 position = Vector2(717, 449)
+metadata/_edit_group_ = true
 
 [node name="Zumbi Normal3" parent="." instance=ExtResource("3_ub2sd")]
 position = Vector2(796, 333)
+metadata/_edit_group_ = true
 
 [node name="Zumbi Normal4" parent="." instance=ExtResource("3_ub2sd")]
 position = Vector2(539, 169)
+metadata/_edit_group_ = true
 
 [node name="Zumbi Normal5" parent="." instance=ExtResource("3_ub2sd")]
 position = Vector2(775, 194)
+metadata/_edit_group_ = true
 
 [node name="Zumbi Normal6" parent="." instance=ExtResource("3_ub2sd")]
 position = Vector2(645, 173)
+metadata/_edit_group_ = true
 
 [node name="Zumbi Normal7" parent="." instance=ExtResource("3_ub2sd")]
 position = Vector2(335, 249)
+metadata/_edit_group_ = true
 
 [node name="Zumbi Normal8" parent="." instance=ExtResource("3_ub2sd")]
 position = Vector2(775, 563)
+metadata/_edit_group_ = true
 
 [node name="Zumbi Normal9" parent="." instance=ExtResource("3_ub2sd")]
 position = Vector2(445, 515)
+metadata/_edit_group_ = true
 
 [node name="Zumbi Normal10" parent="." instance=ExtResource("3_ub2sd")]
 position = Vector2(424, 306)
+metadata/_edit_group_ = true
 
 [node name="Zumbi Normal11" parent="." instance=ExtResource("3_ub2sd")]
 position = Vector2(451, 434)
+metadata/_edit_group_ = true
 
 [node name="Zumbi Normal12" parent="." instance=ExtResource("3_ub2sd")]
 position = Vector2(621, 560)
+metadata/_edit_group_ = true
 
 [node name="Zumbi Normal13" parent="." instance=ExtResource("3_ub2sd")]
 position = Vector2(589, 431)
+metadata/_edit_group_ = true
 
 [node name="Zumbi Normal14" parent="." instance=ExtResource("3_ub2sd")]
 position = Vector2(450, 604)
+metadata/_edit_group_ = true
 
 [node name="Zumbi Normal15" parent="." instance=ExtResource("3_ub2sd")]
 position = Vector2(760, 511)
+metadata/_edit_group_ = true
 
 [editable path="Level"]
 [editable path="Lua"]

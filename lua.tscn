@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://archer.gd" id="4_liuue"]
 [ext_resource type="Texture2D" uid="uid://vuxxxc2k0pf5" path="res://Bow and Arrows.png" id="5_pnspe"]
 
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_4cr0i"]
 atlas = ExtResource("1_3thls")
 region = Rect2(0, 48, 24, 24)
@@ -213,7 +212,22 @@ bg_color = Color(1, 0, 0, 1)
 bg_color = Color(0.0980392, 1, 0.109804, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p3iwa"]
-size = Vector2(17, 20)
+size = Vector2(17, 26)
+
+[sub_resource type="Animation" id="Animation_p56na"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bow:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_p323d"]
 resource_name = "attack"
@@ -260,21 +274,6 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_p56na"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Bow:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0np7t"]
 _data = {
 "RESET": SubResource("Animation_p56na"),
@@ -302,7 +301,7 @@ offset_right = 12.0
 offset_bottom = -9.0
 theme_override_styles/background = SubResource("StyleBoxFlat_qp2jw")
 theme_override_styles/fill = SubResource("StyleBoxFlat_bem36")
-max_value = 10.0
+max_value = 5.0
 value = 5.0
 show_percentage = false
 script = ExtResource("3_jxoqr")
