@@ -309,8 +309,6 @@ script = ExtResource("3_jxoqr")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Collision" type="CollisionShape2D" parent="Area2D"]
-light_mask = 2
-visibility_layer = 4
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_p3iwa")
 
