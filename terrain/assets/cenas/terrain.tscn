@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cb00sv0y4smic" path="res://terrain/assets/chao/Serene_Village_16x16.png" id="6_cgt4i"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7ai6w"]
-load_path = "res://.godot/imported/Zombie-Tileset---_0077_Capa-78.png-b38137e56c157660373735e16247630c.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g80j8"]
 resource_name = "Terra"
@@ -5505,3 +5504,4 @@ sources/5 = SubResource("TileSetAtlasSource_40kmc")
 
 [node name="TileMapLayer" type="TileMapLayer"]
 tile_set = SubResource("TileSet_cvphl")
+navigation_visibility_mode = 1

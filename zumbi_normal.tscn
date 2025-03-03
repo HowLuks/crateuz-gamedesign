@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42wkc"]
-size = Vector2(171.429, 135.714)
+size = Vector2(128.571, 171.429)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_36x1n"]
 atlas = ExtResource("2_5edqp")
@@ -153,7 +153,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytk11"]
-size = Vector2(100, 135.714)
+size = Vector2(100, 142.857)
 
 [node name="Zumbi Normal" type="CharacterBody2D" groups=["zumbi"]]
 scale = Vector2(0.14, 0.14)
@@ -168,6 +168,7 @@ collision_mask = 17
 script = SubResource("GDScript_65po0")
 
 [node name="ColisorAtaque" type="CollisionShape2D" parent="AreaAtaque"]
+position = Vector2(7.14286, -7.14291)
 shape = SubResource("RectangleShape2D_42wkc")
 one_way_collision_margin = 0.0
 
@@ -180,8 +181,11 @@ autoplay = "mov_direita"
 
 [node name="ColisorTerreno" type="CollisionShape2D" parent="."]
 visibility_layer = 2
-position = Vector2(7.14286, 53.5714)
+position = Vector2(7.14286, 49.9999)
 shape = SubResource("RectangleShape2D_ytk11")
+
+[node name="AttackTimer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="AreaAtaque" to="." method="_on_area_ataque_body_entered"]
 [connection signal="body_exited" from="AreaAtaque" to="." method="_on_area_ataque_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

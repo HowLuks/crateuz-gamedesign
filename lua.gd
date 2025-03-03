@@ -29,8 +29,8 @@ func _physics_process(_delta):
 		direction.y = -1
 	
 	if direction != Vector2.ZERO:
-		last_direction = direction.normalized()  # Atualiza a última direção
-		_update_bow()  # Atualiza a posição e rotação do arco
+		last_direction = direction.normalized()
+		_update_bow()
 	
 	velocity = direction.normalized() * speed
 	
@@ -42,6 +42,11 @@ func _physics_process(_delta):
 		anim.play("parado_direita")
 	
 	move_and_slide()
+	
+	# Depuração: Verifique se a Lua está colidindo com algo
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		print("Colidiu com:", collision.get_collider().name)
 
 func _update_bow():
 	if bow:
