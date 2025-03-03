@@ -36,24 +36,22 @@ func _process(delta):
 		attacking = false
 		anim.play("mov_direita")
 
-func _on_attck_area_ataque_body_entered(body: Node2D) -> void:
-
+func _on_area_ataque_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):  
-		print("Zumbi atacou", body.name)  # Depuração para ver se está atacando certo
-		
-		# Pegando o nó certo do jogador
-		var player = body  # <--- ALTERADO (antes pegava get_parent())
-		
-		if player.has_method("receber_dano"):
-			print("Dano aplicado!")  # Depuração para ver se o dano é chamado
-			player.receber_dano(dano)  # Aplica dano
-
-	if body.is_in_group("player"):
-
+		print("Jogador (Lua) entrou na área de ataque!")
+		player_in_attack_range = true
 		attacking = true
 		anim.play("ataque")
+		
+		# Aguarda o momento certo da animação para aplicar dano
+		await get_tree().create_timer(0.5).timeout  # Ajuste o tempo conforme o frame do ataque
+
+		if player_in_attack_range and body.has_method("receber_dano"):
+			body.receber_dano(dano)
+
 		await anim.animation_finished
 		attacking = false
+
 
 
 func _on_area_ataque_body_exited(body: Node2D) -> void:

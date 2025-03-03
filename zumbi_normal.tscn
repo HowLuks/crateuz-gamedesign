@@ -5,6 +5,23 @@
 [ext_resource type="Texture2D" uid="uid://b5018fxock5na" path="res://Spritesheets-Zombies/001_attack.png" id="2_5edqp"]
 [ext_resource type="Texture2D" uid="uid://2v4fes4yx10r" path="res://Spritesheets-Zombies/001_death.png" id="4_nibqx"]
 
+[sub_resource type="GDScript" id="GDScript_65po0"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42wkc"]
+size = Vector2(171.429, 135.714)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_36x1n"]
 atlas = ExtResource("2_5edqp")
 region = Rect2(0, 0, 32, 32)
@@ -136,28 +153,23 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytk11"]
-size = Vector2(128.571, 136.429)
-
-[sub_resource type="GDScript" id="GDScript_65po0"]
-script/source = "extends Area2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_42wkc"]
-size = Vector2(128.571, 135.714)
+size = Vector2(100, 135.714)
 
 [node name="Zumbi Normal" type="CharacterBody2D" groups=["zumbi"]]
 scale = Vector2(0.14, 0.14)
+collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_ax8t2")
+
+[node name="AreaAtaque" type="Area2D" parent="."]
+position = Vector2(0, 57.1429)
+collision_layer = 2
+collision_mask = 17
+script = SubResource("GDScript_65po0")
+
+[node name="ColisorAtaque" type="CollisionShape2D" parent="AreaAtaque"]
+shape = SubResource("RectangleShape2D_42wkc")
+one_way_collision_margin = 0.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -4.76837e-07)
@@ -168,16 +180,8 @@ autoplay = "mov_direita"
 
 [node name="ColisorTerreno" type="CollisionShape2D" parent="."]
 visibility_layer = 2
-position = Vector2(0, 50)
+position = Vector2(7.14286, 53.5714)
 shape = SubResource("RectangleShape2D_ytk11")
-
-[node name="AreaAtaque" type="Area2D" parent="."]
-position = Vector2(35.7143, 142.5)
-script = SubResource("GDScript_65po0")
-
-[node name="ColisorAtaque" type="CollisionShape2D" parent="AreaAtaque"]
-position = Vector2(-35.7143, -92.5)
-shape = SubResource("RectangleShape2D_42wkc")
 
 [connection signal="body_entered" from="AreaAtaque" to="." method="_on_area_ataque_body_entered"]
 [connection signal="body_exited" from="AreaAtaque" to="." method="_on_area_ataque_body_exited"]

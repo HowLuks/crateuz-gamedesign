@@ -64,6 +64,13 @@ ui_down={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Jogador"
+2d_physics/layer_2="Zumbi"
+2d_physics/layer_3="Flecha"
+2d_physics/layer_4="Camada 4"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

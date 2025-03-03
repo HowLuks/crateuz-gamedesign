@@ -11,6 +11,14 @@ scale = Vector2(0.999508, 1)
 [node name="Level" parent="." instance=ExtResource("1_iygss")]
 position = Vector2(508, 357)
 
+[node name="Collisor de baixo" parent="Level" index="2"]
+collision_layer = 16
+collision_mask = 3
+
+[node name="colisor direita" parent="Level" index="3"]
+collision_layer = 16
+collision_mask = 3
+
 [node name="Lua" parent="." instance=ExtResource("2_2neyd")]
 position = Vector2(714, 706)
 
